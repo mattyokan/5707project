@@ -1,0 +1,371 @@
+---
+title: "CSCI 5707 Cereal Data Analysis"
+author: "Eric Trempe"
+date: "2022-11-21"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
+library(kableExtra)
+```
+
+```{r}
+library(readxl)
+cereal_and_ingredients <- read_excel("kaggle_with_ingredients.xlsx")
+cereal <- cbind(cereal_and_ingredients[,3:13], cereal_and_ingredients[17])
+cereal$calories <- as.numeric(cereal$calories)
+cereal$protein <- as.numeric(cereal$protein)
+cereal$fat <- as.numeric(cereal$fat)
+cereal$sodium <- as.numeric(cereal$sodium)
+cereal$fiber <- as.numeric(cereal$fiber)
+cereal$carbo <- as.numeric(cereal$carbo)
+cereal$sugars <- as.numeric(cereal$sugars)
+cereal$potass <- as.numeric(cereal$potass)
+cereal$rating <- as.numeric(cereal$rating)
+cereal$mfr <- as.factor(cereal$mfr)
+cereal$vitamins <- as.factor(cereal$vitamins)
+
+cereal_train <- cereal[1:30,]
+cereal_test <- cereal[31:52,]
+```
+
+## Predicting Rating
+
+```{r}
+nutrition_model <- lm(rating ~ ., data = cereal_train)
+summary(nutrition_model)
+```
+
+```{r}
+AIC_model <- step(nutrition_model, direction = "both", trace = FALSE, k = 2)
+summary(AIC_model)
+AIC(AIC_model)
+```
+
+```{r}
+BIC_model <- step(nutrition_model, direction = "both", trace = FALSE, k = log(nrow(cereal_train)))
+summary(BIC_model)
+BIC(BIC_model)
+```
+
+```{r}
+# Checking on collinearity
+cor(cereal[3:10]) # potassium and fiber have high correlation, 0.9+
+```
+
+```{r}
+final_rating_model <- lm(formula = rating ~ I(mfr=="N") + calories + protein + fat + sodium + 
+    fiber + carbo + sugars, data = cereal_train) # AIC/BIC selected model minus potassium and non-significant manufacturers
+summary(final_rating_model)
+AIC(final_rating_model)
+BIC(final_rating_model)
+```
+
+```{r}
+Rating_Prediction <- predict(final_rating_model, newdata = cereal_test)
+Actual_Rating <- cereal_test$rating
+Absolute_Error <- abs(Actual_Rating - Rating_Prediction)
+rating_df <- as.data.frame(cbind(Rating_Prediction, Actual_Rating, Absolute_Error))
+kable(rating_df)
+```
+
+Average absolute error:
+```{r}
+sum(Absolute_Error)/length(Absolute_Error)
+```
+
+## Predicting Manufacturer
+
+```{r}
+library(nnet)
+mfr_full <- multinom(mfr ~ ., data = cereal_train)
+summary(mfr_full)
+BIC(mfr_full)
+```
+
+```{r}
+z <- summary(mfr_full)$coefficients/summary(mfr_full)$standard.errors
+p <- (1 - pnorm(abs(z), 0, 1)) * 2
+p
+```
+
+```{r}
+mfr_best <- multinom(mfr ~ fat + fiber + protein, data = cereal_train)
+summary(mfr_best)
+BIC(mfr_best)
+```
+
+```{r}
+z <- summary(mfr_best)$coefficients/summary(mfr_best)$standard.errors
+p <- (1 - pnorm(abs(z), 0, 1)) * 2
+p
+```
+
+
+
+Predicted manufacturer
+```{r}
+kable(mfr_preds <- predict(mfr_best, newdata = cereal_test))
+```
+
+
+
+Actual manufacturer
+```{r}
+kable(actual <- cereal_test$mfr)
+```
+
+Rate of success:
+
+```{r}
+correct <- 0
+total <- 0
+for (i in 1:length(cereal_test)) {
+  if (actual[i] == mfr_preds[i]) {
+    correct = correct + 1
+    total = total + 1
+  }
+  else {
+    total = total + 1
+  }
+}
+correct/total
+```
+
+## Text Analysis
+
+```{r}
+library(wordcloud)
+library(tidyverse)
+library(tidytext)
+```
+
+```{r}
+ingred <- cereal_and_ingredients
+
+ingred_only <- stack(ingred, select = c(`ingredients/0`,`ingredients/1`, `ingredients/2`, `ingredients/3`, `ingredients/4`, `ingredients/5`, `ingredients/6`, `ingredients/7`, `ingredients/8`, `ingredients/9`, `ingredients/10`, `ingredients/11`, `ingredients/12`, `ingredients/13`, `ingredients/14`, `ingredients/15`, `ingredients/16`, `ingredients/17`, `ingredients/18`, `ingredients/19`, `ingredients/20`, `ingredients/21`, `ingredients/22`, `ingredients/23`, `ingredients/24`, `ingredients/25`, `ingredients/26`, `ingredients/27`, `ingredients/28`, `ingredients/29`, `ingredients/30`, `ingredients/31`))
+
+ingred <- cbind(ingred_only, cereal_and_ingredients[,1:17])
+
+ingred <- ingred %>%
+  drop_na
+
+ingred_words <- ingred %>%
+  unnest_tokens(word, "values")
+
+ingred_bigrams <- ingred %>%
+  unnest_tokens(bigrams, "values", token = "ngrams", n = 2)
+```
+
+```{r}
+my_stopwords <- tibble(word = c("and","the","to", "vitamin", "a", "b", "b6", "b3", "less", "added", "of", "2", "b1", "b2", "vitamins", "or", "b12", "reduced", "contains"))
+```
+
+```{r}
+ingred_words <- ingred_words %>%
+  anti_join(my_stopwords, by = "word")
+```
+
+```{r}
+ingred_counts <- ingred_words %>%
+  count(word, sort = TRUE)
+
+ingred_counts %>%
+  with(wordcloud(word, n, max.words = 15, random.order = FALSE, random.color = FALSE))
+```
+
+```{r}
+ingred_counts %>%
+  top_n(15, wt = n) %>%
+  arrange(desc(n)) %>%
+  kable()
+```
+
+```{r}
+ingred_bigram_counts <- ingred_bigrams %>%
+  count(bigrams, sort = TRUE)
+
+ingred_bigram_counts %>%
+  with(wordcloud(bigrams, n, max.words = 15, random.order = FALSE, random.color = FALSE))
+```
+
+### Top 50% Healthiest
+
+```{r}
+top_rated_counts <- ingred_words %>%
+  filter(rating > 40.5) %>%
+  count(word, sort = TRUE)
+
+top_rated_counts %>%
+  with(wordcloud(word, n, max.words = 15, random.order = FALSE, random.color = FALSE))
+```
+
+```{r}
+percent <- top_rated_counts$n / sum(top_rated_counts$n)
+top_rated_counts <- cbind(top_rated_counts, percent)
+top_rated_counts %>%
+  top_n(15, wt = n) %>%
+  arrange(desc(n)) %>%
+  kable()
+```
+
+### Bottom 50% healthiest
+
+```{r}
+bot_rated_counts <- ingred_words %>%
+  filter(rating <= 40.5) %>%
+  count(word, sort = TRUE)
+
+bot_rated_counts %>%
+  with(wordcloud(word, n, max.words = 15, random.order = FALSE, random.color = FALSE))
+```
+
+```{r}
+percent <- bot_rated_counts$n / sum(bot_rated_counts$n)
+bot_rated_counts <- cbind(bot_rated_counts, percent)
+bot_rated_counts %>%
+  top_n(15, wt = n) %>%
+  arrange(desc(n)) %>%
+  kable()
+```
+
+### Kelloggs
+
+```{r}
+K_counts <- ingred_words %>%
+  filter(mfr == "K") %>%
+  count(word, sort = TRUE)
+
+K_counts %>%
+  with(wordcloud(word, n, max.words = 15, random.order = FALSE, random.color = FALSE))
+```
+
+```{r}
+percent <- K_counts$n / sum(K_counts$n)
+K_counts <- cbind(K_counts, percent)
+K_counts %>%
+  top_n(15, wt = n) %>%
+  arrange(desc(n)) %>%
+  kable()
+```
+
+### General Mills
+
+```{r}
+G_counts <- ingred_words %>%
+  filter(mfr == "G") %>%
+  count(word, sort = TRUE)
+
+G_counts %>%
+  with(wordcloud(word, n, max.words = 15, random.order = FALSE, random.color = FALSE))
+```
+
+```{r}
+percent <- G_counts$n / sum(G_counts$n)
+G_counts <- cbind(G_counts, percent)
+G_counts %>%
+  top_n(15, wt = n) %>%
+  arrange(desc(n)) %>%
+  kable()
+```
+
+### Post
+
+```{r}
+P_counts <- ingred_words %>%
+  filter(mfr == "P") %>%
+  count(word, sort = TRUE)
+
+P_counts %>%
+  with(wordcloud(word, n, max.words = 15, random.order = FALSE, random.color = FALSE))
+```
+
+```{r}
+percent <- P_counts$n / sum(P_counts$n)
+P_counts <- cbind(P_counts, percent)
+P_counts %>%
+  top_n(15, wt = n) %>%
+  arrange(desc(n)) %>%
+  kable()
+```
+
+### Quaker
+
+```{r}
+Q_counts <- ingred_words %>%
+  filter(mfr == "Q") %>%
+  count(word, sort = TRUE)
+
+Q_counts %>%
+  with(wordcloud(word, n, max.words = 15, random.order = FALSE, random.color = FALSE))
+```
+
+```{r}
+percent <- Q_counts$n / sum(Q_counts$n)
+Q_counts <- cbind(Q_counts, percent)
+Q_counts %>%
+  top_n(15, wt = n) %>%
+  arrange(desc(n)) %>%
+  kable()
+```
+
+### Nabisco
+
+```{r}
+N_counts <- ingred_words %>%
+  filter(mfr == "N") %>%
+  count(word, sort = TRUE)
+
+N_counts %>%
+  with(wordcloud(word, n, max.words = 15, random.order = FALSE, random.color = FALSE))
+```
+
+```{r}
+percent <- N_counts$n / sum(N_counts$n)
+N_counts <- cbind(N_counts, percent)
+N_counts %>%
+  top_n(15, wt = n) %>%
+  arrange(desc(n)) %>%
+  kable()
+```
+
+### Ralston Purina
+
+```{r}
+R_counts <- ingred_words %>%
+  filter(mfr == "R") %>%
+  count(word, sort = TRUE)
+
+R_counts %>%
+  with(wordcloud(word, n, max.words = 15, random.order = FALSE, random.color = FALSE))
+```
+
+```{r}
+percent <- R_counts$n / sum(R_counts$n)
+R_counts <- cbind(R_counts, percent)
+R_counts %>%
+  top_n(15, wt = n) %>%
+  arrange(desc(n)) %>%
+  kable()
+```
+
+### American Home Food Products
+
+```{r}
+A_counts <- ingred_words %>%
+  filter(mfr == "A") %>%
+  count(word, sort = TRUE)
+
+A_counts %>%
+  with(wordcloud(word, n, max.words = 15, random.order = FALSE, random.color = FALSE))
+```
+
+```{r}
+percent <- A_counts$n / sum(A_counts$n)
+A_counts <- cbind(A_counts, percent)
+A_counts %>%
+  top_n(15, wt = n) %>%
+  arrange(desc(n)) %>%
+  kable()
+```
