@@ -1,0 +1,185 @@
+class,type,group,allergy,food
+Plant origin,Nut and seed,Oil seed,Nut Allergy,ALMOND
+Plant origin,Fruit,Pome fruit,Oral Allergy Syndrome,APPLE
+Plant origin,Fruit,Stone fruit,Stone Fruit Allergy,APRICOT
+Plant origin,Vegetable,Composite vegetable,Insulin Allergy,ARTICHOKE
+Plant origin,Vegetable,Liliaceous vegetable,Allium Allergy,ASPARAGUS
+Plant origin,Fruit,Tropical fruit,Oral Allergy Syndrome,AVOCADO
+Plant origin,Vegetable,Miscellaneous vegetable,Histamine Allergy,BAMBOO SHOOT
+Plant origin,Fruit,Tropical fruit,Banana Allergy,BANANA
+Plant origin,Cereal grain and pulse,Cereal grain,Gluten Allergy,BARLEY
+Plant origin,Cereal grain and pulse,Pulse,Legume Allergy,BEAN
+Plant origin,Fruit,Berry,Salicylate Allergy,BLACKBERRY
+Plant origin,Cereal grain and pulse,Pulse,Legume Allergy,BLACK-EYED BEAN
+Plant origin,Fruit,Berry,Salicylate Allergy,BLUEBERRY
+Animal origin,Aquatic animal,Fish,Histamine Allergy,BONITO
+Plant origin,Cereal grain and pulse,Pulse,Legume Allergy,BROAD BEAN
+Plant origin,Vegetable,Cruciferous vegetable,Broccoli allergy,BROCCOLI
+Plant origin,Vegetable,Cruciferous vegetable,Cruciferous Allergy,BRUSSELS SPROUTS
+Plant origin,Cereal grain and pulse,Cereal grain,Gluten Allergy,BUCKWHEAT
+Plant origin,Vegetable,Composite vegetable,Ragweed Allergy,BURDOCK
+Animal origin,Dairy,Dairy,Milk allergy / Lactose intolerance,BUTTER
+Plant origin,Cereal grain and pulse,Pulse,Legume Allergy,BUTTER BEAN
+Animal origin,Dairy,Dairy,Milk allergy / Lactose intolerance,BUTTERMILK
+Plant origin,Vegetable,Mushroom,Mushroom Allergy,BUTTON MUSHROOM
+Plant origin,Vegetable,Cruciferous vegetable,Cruciferous Allergy,CABBAGE
+Plant origin,Nut and seed,Beverage seed,,CACAO BEAN
+Plant origin,Oil,Oil,,CANOLA OIL
+Plant origin,Vegetable,Umbelliferous vegetable,Hypersensitivity,CARROT
+Animal origin,Dairy,Dairy,Milk allergy / Lactose intolerance,CASEIN
+Animal origin,Terrestrial mammal,Offal,Alpha-gal Syndrome,CATTLE
+Plant origin,Vegetable,Cruciferous vegetable,Cruciferous Allergy,CAULIFLOWER
+Plant origin,Vegetable,Umbelliferous vegetable,Hypersensitivity,CELERY
+Animal origin,Dairy,Dairy,Milk allergy / Lactose intolerance,CHEESE
+Plant origin,Fruit,Stone fruit,Stone Fruit Allergy,CHERRY
+Plant origin,Nut and seed,Oil seed,Nut Allergy,CHESTNUT
+Animal origin,Poultry,Offal,Poultry Allergy,CHICKEN
+Plant origin,Vegetable,Composite vegetable,Insulin Allergy,CHICORY
+Plant origin,Vegetable,Cruciferous vegetable,Cruciferous Allergy,CHINESE CABBAGE
+Plant origin,Oil,Oil,,COCONUT OIL
+Plant origin,Nut and seed,Beverage seed,Ochratoxin Allergy,COFFEE BEAN
+Plant origin,Cereal grain and pulse,Cereal grain,Corn Allergy,CORN
+Plant origin,Oil,Oil,,CORN OIL
+Plant origin,Nut and seed,Oil seed,Seed Allergy,COTTON SEED
+Plant origin,Fruit,Berry,Salicylate Allergy,CRANBERRY
+Animal origin,Dairy,Dairy,Milk allergy / Lactose intolerance,CREAM
+Animal origin,Aquatic animal,Shellfish,Shellfish Allergy,CRUSTACEANS
+Plant origin,Vegetable,Cucurbitaceous vegetable,,CUCUMBER
+Animal origin,Dairy,Dairy,Milk allergy / Lactose intolerance,CUSTARD
+Plant origin,Fruit,Tropical fruit,Oral Allergy Syndrome,DATE
+Animal origin,Terrestrial mammal,Offal,Alpha-gal Syndrome,DEER
+Animal origin,Poultry,Offal,Poultry Allergy,DUCK
+Animal origin,Aquatic animal,Fish,Fish Allergy,EEL
+Plant origin,Vegetable,Solanceous vegetable,Nightshade Allergy,EGG PLANT
+Animal origin,Poultry,Egg,Poultry Allergy,EGGS
+Plant origin,Vegetable,Composite vegetable,Insulin Allergy,ENDIVE
+Plant origin,Vegetable,Sugar source,Sugar Allergy / Intolerance,FRUCTOSE
+Plant origin,Vegetable,Liliaceous vegetable,Allium Allergy,GARLIC
+Plant origin,Vegetable,Cucurbitaceous vegetable,,GHRKIN
+Plant origin,Vegetable,Miscellaneous vegetable,Histamine Allergy,GINGER
+Plant origin,Nut and seed,Oil seed,Nut Allergy,GINKGO NUT
+Animal origin,Aquatic animal,Fish,Fish Allergy,GLOBFISH
+Plant origin,Vegetable,Sugar source,Sugar Allergy / Intolerance,GLUCOSE
+Animal origin,Terrestrial mammal,Offal,Alpha-gal Syndrome,GOAT
+Plant origin,Fruit,Grape,LTP Allergy,GRAPE
+Plant origin,Fruit,Citrus fruit / citric acid,Citrus Allergy,GRAPEFRUIT
+Plant origin,Oil,Oil,,GRAPESEED OIL
+Plant origin,Vegetable,Legumes vegetable,Legume Allergy,GREEN SOYBEAN
+Plant origin,Oil,Oil,,GROUNDNUT OIL
+Plant origin,Fruit,Tropical fruit,Oral Allergy Syndrome,GUAVA
+Animal origin,Bee product,Bee product,Honey Allergy,HONEY
+Plant origin,Hop,Hop,Beer Allergy,HOP
+Animal origin,Terrestrial mammal,Offal,Alpha-gal Syndrome,HORSE
+Animal origin,Aquatic animal,Fish,Fish Allergy,HORSE MACKEREL
+Plant origin,Vegetable,Cruciferous vegetable,Cruciferous Allergy,HORSERADISH
+Plant origin,Fruit,Berry,Salicylate Allergy,HUCKLEBERRY
+Animal origin,Dairy,Dairy,Milk allergy / Lactose intolerance,ICE CREAM
+Plant origin,Fruit,Pome fruit,Oral Allergy Syndrome,JAPANESE PEAR
+Plant origin,Fruit,Tropical fruit,,JAPANESE PERSIMMON
+Plant origin,Fruit,Stone fruit,Stone Fruit Allergy,JAPANESE PLUM
+Plant origin,Vegetable,Cruciferous vegetable,Cruciferous Allergy,KALE
+Plant origin,Vegetable,Legumes vegetable,Legume Allergy,KIDNEY BEAN
+Plant origin,Fruit,Tropical fruit,Oral Allergy Syndrome,KIWI
+Plant origin,Vegetable,Potato,Potato Allergy,KONJAC
+Plant origin,Vegetable,Cruciferous vegetable,Cruciferous Allergy,KYONA
+Plant origin,Vegetable,Sugar source,Lactose Intolerance,LACTOSE
+Plant origin,Vegetable,Liliaceous vegetable,Allium Allergy,LEEK
+Plant origin,Fruit,Citrus fruit / citric acid,Citrus Allergy,LEMON
+Plant origin,Cereal grain and pulse,Pulse,Legume Allergy,LENTIL
+Plant origin,Vegetable,Composite vegetable,LTP Allergy,LETTUCE
+Plant origin,Cereal grain and pulse,Pulse,Legume Allergy,LIMA BEAN
+Plant origin,Fruit,Citrus fruit / citric acid,Citrus Allergy,LIME
+Plant origin,Fruit,Pome fruit,Oral Allergy Syndrome,LOQUAT
+Animal origin,Aquatic animal,Fish,Fish Allergy,MACKEREL
+Plant origin,Vegetable,Cucurbitaceous vegetable,,MAKUWAURI MELON
+Plant origin,Fruit,Tropical fruit,Oral Allergy Syndrome,MANGO
+Plant origin,Vegetable,Cucurbitaceous vegetable,,MELONS
+Animal origin,Dairy,Dairy,Milk allergy / Lactose intolerance,MILK
+Mineral waters,Mineral water,Mineral water,Aquagenic Urticaria,MINERAL WATER
+Plant origin,Vegetable,Umbelliferous vegetable,Hypersensitivity,MITSUBA
+Plant origin,Fruit,Stone fruit,Stone Fruit Allergy,MUME PLUM
+Plant origin,Oil,Oil,,MUSTARD OIL
+Plant origin,Vegetable,Cruciferous vegetable,Cruciferous Allergy,MUSTARD SPINACH
+Plant origin,Fruit,Stone fruit,Stone Fruit Allergy,NECTARINE
+Plant origin,Vegetable,Liliaceous vegetable,Allium Allergy,NIRA
+Plant origin,Vegetable,Miscellaneous vegetable,Histamine Allergy,OKRA
+Plant origin,Oil,Oil,,OLIVE OIL
+Plant origin,Vegetable,Liliaceous vegetable,Allium Allergy,ONION
+Plant origin,Fruit,Citrus fruit / citric acid,Citrus Allergy,ORANGE
+Plant origin,Fruit,Citrus fruit / citric acid,Citrus Allergy,ORANGE PULP
+Plant origin,Fruit,Tropical fruit,Oral Allergy Syndrome,PAPAYA
+Plant origin,Vegetable,Umbelliferous vegetable,Hypersensitivity,PARSLEY
+Plant origin,Vegetable,Umbelliferous vegetable,Hypersensitivity,PARSNIP
+Plant origin,Fruit,Tropical fruit,Oral Allergy Syndrome,PASSION FRUIT
+Plant origin,Fruit,Stone fruit,Stone Fruit Allergy,PEACH
+Plant origin,Cereal grain and pulse,Pulse,Peanut Allergy,PEANUT
+Plant origin,Fruit,Pome fruit,Oral Allergy Syndrome,PEAR
+Plant origin,Vegetable,Legumes vegetable,Legume Allergy,PEAS
+Plant origin,Cereal grain and pulse,Pulse,Legume Allergy,PEAS
+Plant origin,Nut and seed,Oil seed,Nut Allergy,PECAN
+Plant origin,Cereal grain and pulse,Pulse,Legume Allergy,PEGIA
+Plant origin,Spice and herb,Herb,Mint Allergy,PEPPERMINT
+Animal origin,Aquatic animal,Fish,Fish Allergy,PERCIFOMES
+Animal origin,Terrestrial mammal,Offal,Alpha-gal Syndrome,PIG
+Plant origin,Fruit,Tropical fruit,Oral Allergy Syndrome,PINEAPPLE
+Plant origin,Cereal grain and pulse,Cereal grain,Corn Allergy,POPCORN
+Plant origin,Vegetable,Potato,Potato Allergy,POTATO
+Plant origin,Fruit,Stone fruit,Stone Fruit Allergy,PRUNE
+Plant origin,Vegetable,Cucurbitaceous vegetable,,PUMPKIN
+Plant origin,Vegetable,Cruciferous vegetable,Cruciferous Allergy,QING-GENG-CAI
+Plant origin,Fruit,Pome fruit,Oral Allergy Syndrome,QUINCE
+Plant origin,Vegetable,Cruciferous vegetable,,RADISH LEAF
+Plant origin,Vegetable,Cruciferous vegetable,Hypersensitivity,RADISH ROOT
+Plant origin,Nut and seed,Oil seed,Seed Allergy,RAPESEED
+Plant origin,Fruit,Berry,Salicylate Allergy,RASPBERRY
+Plant origin,Cereal grain and pulse,Cereal grain,Rice Allergy,RICE
+Plant origin,Oil,Oil,,RICEBRAN OIL
+Animal origin,Bee product,Bee product,Honey Allergy,ROYAL JELLY
+Plant origin,Cereal grain and pulse,Cereal grain,Gluten Allergy,RYE
+Plant origin,Nut and seed,Oil seed,Seed Allergy,SAFFLOWER SEED
+Animal origin,Aquatic animal,Fish,Fish Allergy,SALMON
+Plant origin,Vegetable,Composite vegetable,Insulin Allergy,SALSIFY
+Plant origin,Spice and herb,Spice,Pepper Allergy,SANSHO
+Animal origin,Aquatic animal,Fish,Fish Allergy,SEA BASS
+Animal origin,Aquatic animal,Fish,Fish Allergy,SEA BREAM
+Plant origin,Nut and seed,Oil seed,Seed Allergy,SESAME SEED
+Plant origin,Vegetable,Liliaceous vegetable,Allium Allergy,SHALLOT
+Animal origin,Terrestrial mammal,Offal,Alpha-gal Syndrome,SHEEP
+Animal origin,Aquatic animal,Shellfish,Fish Allergy,SHELLED MOLLUSC
+Plant origin,Vegetable,Mushroom,Mushroom Allergy,SHIITAKE MUSHROOM
+Plant origin,Vegetable,Composite vegetable,Insulin Allergy,SHUNGIKU
+Animal origin,Dairy,Dairy,Milk allergy / Lactose intolerance,SOUR CREAM
+Plant origin,Cereal grain and pulse,Pulse,Soy Allergy,SOYBEAN
+Plant origin,Spice and herb,Herb,Mint Allergy,SPEARMINT
+Plant origin,Vegetable,Miscellaneous vegetable,Histamine Allergy,SPINACH
+Plant origin,Vegetable,Cucurbitaceous vegetable,,SQUASH
+Plant origin,Fruit,Berry,Salicylate Allergy,STRAWBERRY
+Plant origin,Vegetable,Sugar source,Sugar Allergy / Intolerance,SUGAR
+Plant origin,Vegetable,Sugar source,Sugar Allergy / Intolerance,SUGAR BEET
+Plant origin,Vegetable,Sugar source,Sugar Allergy / Intolerance,SUGARCANE
+Plant origin,Cereal grain and pulse,Pulse,Legume Allergy,SULTANI
+Plant origin,Cereal grain and pulse,Pulse,Legume Allergy,SULTAPYA
+Plant origin,Oil,Oil,,SUNFLOWER OIL
+Plant origin,Nut and seed,Oil seed,Seed Allergy,SUNFLOWER SEED
+Plant origin,Cereal grain and pulse,Cereal grain,Corn Allergy,SWEET CORN
+Plant origin,Vegetable,Solanceous vegetable,Nightshade Allergy,SWEET PEPPER
+Plant origin,Vegetable,Potato,Potato Allergy,SWEET POTATO
+Plant origin,Vegetable,Potato,Potato Allergy,TARO
+Plant origin,Tea,Tea,Tannin Allergy,TEA
+Animal origin,Aquatic animal,Fish,Fish Allergy,TETRAODONTIFORMES
+Plant origin,Vegetable,Solanceous vegetable,Nightshade Allergy,TOMATO
+Animal origin,Aquatic animal,Fish,Fish Allergy,TROUT
+Animal origin,Aquatic animal,Fish,Fish Allergy,TUNA
+Animal origin,Poultry,Offal,Poultry Allergy,TURKEY
+Plant origin,Vegetable,Cruciferous vegetable,,TURNIP LEAF
+Plant origin,Vegetable,Cruciferous vegetable,Thyroid,TURNIP ROOT
+Plant origin,Oil,Oil,,VEGETABLE OIL
+Plant origin,Nut and seed,Oil seed,Nut Allergy,WALNUT
+Plant origin,Vegetable,Cucurbitaceous vegetable,,WATER MELON
+Plant origin,Vegetable,Cruciferous vegetable,,WATERCRESS
+Plant origin,Vegetable,Liliaceous vegetable,Allium Allergy,WELSH
+Plant origin,Cereal grain and pulse,Cereal grain,Gluten Allergy,WHEAT
+Animal origin,Dairy,Dairy,Milk allergy / Lactose intolerance,WHEY
+Plant origin,Cereal grain and pulse,Pulse,Legume Allergy,WHITE BEAN
+Plant origin,Vegetable,Potato,Potato Allergy,YAM
+Animal origin,Dairy,Dairy,Milk allergy / Lactose intolerance,YOGURT
